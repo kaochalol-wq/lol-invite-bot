@@ -1,0 +1,18 @@
+# Pythonのキャッシュ
+__pycache__/
+*.py[cod]
+
+# PyInstallerの作業ファイル
+build/
+*.spec
+
+# 環境設定や秘密情報
+.env
+.env.*
+*.pem
+*.key
+
+# エディタ・OSの一時ファイル
+.vscode/
+.DS_Store
+Thumbs.db
