@@ -1,35 +1,51 @@
 # LoL Invite Bot for Twitch
 
-League of Legends の招待リンクをクリップボードから検知し、自分の Twitch チャットに自動投稿する Windows 用ツールです。
+League of Legends（LoL）の招待リンクをクリップボードから検出し、自分のTwitchチャットに自動投稿するWindows用ツールです。
 
-## 機能
+## Features
 
-- クリップボードの内容を監視
-- LoL の招待リンクを検知
-- Twitch チャットへ招待リンクを投稿
-- Twitch の認証情報を Windows の資格情報保管庫に保存
+- LoLの招待リンクをクリップボードから検出
+- 検出した招待リンクを自分のTwitchチャットに投稿
+- Twitchの認証情報をWindowsの資格情報マネージャーに保存
 
-## 使い方
-
-1. `LoLInviteBot.exe` を起動します。
-2. 初回起動時は、表示される案内に従って Twitch の認証を行います。
-3. 認証後、ツールがクリップボードの監視を開始します。
-4. LoL で「招待リンクをコピー」を実行すると、検知したリンクが Twitch チャットに投稿されます。
-5. 終了するには、表示されているコンソール画面で `Ctrl + C` を押します。
-
-## 必要な環境
+## Requirements
 
 - Windows
-- Twitch アカウント
 - インターネット接続
+- Twitchアカウント
+- League of Legendsの招待リンク
 
-## セキュリティとプライバシー
+## Download
 
-- Twitch の認証情報は Windows の資格情報保管庫に保存されます。
-- 認証時は、利用者自身の Twitch アカウントでアクセスを許可してください。
-- 認証コードやトークンを他人に共有しないでください。
-- クリップボードを監視するため、招待リンク以外のコピー内容も検知する場合があります。
+[Releasesページ](../../releases) から最新版の `LoLInviteBot.exe` をダウンロードしてください。
 
-## 注意事項
+## How to use
 
-- 本ツールは個人開発の非公式ツールです。Riot Games、League
+1. Releasesページから `LoLInviteBot.exe` をダウンロードします。
+2. ダウンロードしたファイルを実行します。
+3. 初回起動時に表示される案内に従い、Twitchの認証を行います。
+4. LoLの招待リンクをコピーします。
+5. ツールがリンクを検出し、自分のTwitchチャットに投稿します。
+
+ツールを使用している間は、プログラムを起動したままにしてください。
+
+## Authentication and security
+
+- Twitch認証情報はWindowsの資格情報マネージャーに保存されます。
+- Twitchの認証は利用者自身のアカウントで行ってください。
+- 認証コード、アクセストークン、リフレッシュトークンを他人に共有しないでください。
+- 招待リンクには参加用の情報が含まれる場合があります。公開の場で不用意に共有しないでください。
+
+## Troubleshooting
+
+- **認証できない場合：** 画面に表示された案内に従って、Twitch認証をやり直してください。
+- **投稿されない場合：** インターネット接続、Twitch認証、コピーしたリンクが対応形式かを確認してください。
+- **Windowsが警告を表示する場合：** 発行元が確認できない実行ファイルとして警告されることがあります。実行する前に、公開元とソースコードを確認してください。
+
+## Disclaimer
+
+This is an unofficial community tool. It is not affiliated with, endorsed by, or sponsored by Riot Games or Twitch.
+
+## Bug reports
+
+不具合を報告する際は、発生した状況とエラーメッセージを記載してください。認証情報や個人情報は投稿しないでください。
