@@ -21,6 +21,7 @@ def authenticate():
         raise SystemExit("CLIENT_IDを設定してください。")
 
     refresh_token = keyring.get_password(service, "refresh_token")
+    print("保存済みトークンあり:", bool(refresh_token))
     access_token = None
 
     # 保存済みトークンで接続を試す
@@ -43,17 +44,19 @@ def authenticate():
                 access_token = token_data["access_token"]
                 new_refresh_token = token_data.get("refresh_token")
 
+
                 if new_refresh_token:
                     keyring.set_password(
                         service, "refresh_token", new_refresh_token
                     )
                 else:
-                     print("保存済みトークンを更新できません。再認証します。")
-                try:
-                    keyring.delete_password(service, "refresh_token")
-                except keyring.errors.PasswordDeleteError:
-                    pass
- 
+                    print("保存済みトークンを更新できません。再認証します。")
+                    print("エラー詳細:", response.status_code, response.text)
+                    try:
+                        keyring.delete_password(service, "refresh_token")
+                    except keyring.errors.PasswordDeleteError:
+                        pass
+
 
         except requests.RequestException as error:
             raise SystemExit(f"Twitchへの接続に失敗しました: {error}")
@@ -224,7 +227,7 @@ def main():
                 post_to_chat(headers, user_id, link)
             else:
                 print("今回は招待リンクとして認識されませんでした")
-                print("コピーされた文字列の先頭:", repr(text[:100]))
+
 
         time.sleep(0.5)
 
